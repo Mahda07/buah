@@ -43,6 +43,9 @@ export async function tambahBuah(nama, warna, harga) {
     console.log("gagal menyimpan data buah" + e)
   }
 }
+export async function hapusBuah(id) {
+    await deleteDoc(doc(basisdata,"buah",id))
+  }
 
 export async function ambilDaftarBuah() {
   const refDokumen = collection(basisdata, "buah");
