@@ -51,8 +51,10 @@
      })
      
      $(".tombol-hapus").click(async function(){
-       await hapusBuah($(this).attr('data'))
+       if (confirm("apakah benar mau menghapus?")) {
+         await hapusBuah($(this).attr('data'))
        location.reload()
+       }
      })
      
     })
