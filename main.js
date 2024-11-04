@@ -65,4 +65,20 @@ export async function ambilDaftarBuah() {
   return hasilKueri;
 }
   
-  
+ export async function ubahBuah(id, nama,warna,harga) {
+   await updateDoc(
+     doc(basisdata, "buah", id),
+     { 
+       nama: nama,
+     warna: warna,
+     harga: harga 
+       
+     })
+   }
+   
+   export async function ambilBuah(id) {
+    const refDokumen = await doc(basisdata, "buah", id)
+    const snapshotDocumen = await getDoc(refDokumen)
+    
+    return await snapshotDocumen.data()
+  }
